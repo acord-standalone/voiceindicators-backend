@@ -99,7 +99,7 @@ setInterval(() => {
 
       socket.data.acordToken = data.acordToken;
       let userId = await exchangeToken(data.acordToken);
-      if (!userId) return cb({ ok: false, error: "Invalid token!" });
+      if (!userId) return cb?.({ ok: false, error: "Invalid token!" });
 
       if (socket.data.id) {
         onAny("disconnect", {}, () => { });
