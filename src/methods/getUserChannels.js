@@ -54,7 +54,7 @@ module.exports = async function getUserChannels(userId, { getUserSocket, io }) {
         if (!channel.guildId) {
           let results = [];
           await aaq.quickForEach(
-            channel._usersJoinedBefore,
+            channel._usersJoinedBefore.length ? channel._usersJoinedBefore : channel.userIds,
             async (oldUserId) => {
               let oldUserSocket = getUserSocket(oldUserId);
               if (!oldUserSocket) return;
